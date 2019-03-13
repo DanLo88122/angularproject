@@ -5,8 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Test</title>
+
+    <!-- Imporportanto librerias de JavaScipt-->
+    <script src="jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="jquery.dataTables.min.js"></script>
+    <script src="angular-datatables.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <!-- importando librerias de CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="datatables.bootstrap.css">
 </head>
-<body>
-    <h1>asdasda</h1>
+<body ng-app="crudApp" ng-controller="crudController">
+    <div class="container">
+        <br>
+            <h3>Test Tecnico de ANGULAR JS</h3>
+        <br>
+
+        <div align="right">
+
+        </div>
+        <br>
+        <div class="table-responsive" style="overflow-x:unset;">
+            <table datatable="ng" dt-options="vm.dtOptions" class="table
+            table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Old</th>
+                        <th>Motivo</th>
+                        <th>Desmotivo</th>
+                        <th>Estado</th>
+                        <th>Tipo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="name in namesData">
+                        <td>{{ name.old }}</td>
+                        <td>{{ name.motivo }}</td>
+                        <td>{{ name.des_motivo }}</td>
+                        <td>{{ name.estado }}</td>
+                        <td>{{ name.tipo }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </body>
 </html>
+
+<script>
+    var app = angular.module('crudApp',['datatables']);
+    app.controller('crudController',function($scope, $http){
+        $scope.fetchData = function(){
+            $http.get('fetch_data.php').success(function(data){
+                $scope.namesData = data;
+            });
+        };
+    });
+</script>
