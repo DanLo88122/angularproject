@@ -22,7 +22,7 @@
 				{{successMessage}}
 			</div>
 			<div align="right">
-				<button type="button" name="add_button" ng-click="addData()" class="btn btn-success">Add</button>
+				<button type="button" name="add_button" ng-click="addData()" class="btn btn-success">Agregar nuevo registro</button>
 			</div>
 			<br />
 			<div class="table-responsive" style="overflow-x: unset;">
@@ -121,8 +121,8 @@ app.controller('crudController', function($scope, $http){
 	};
 
 	$scope.addData = function(){
-		$scope.modalTitle = 'Add Data';
-		$scope.submit_button = 'Insert';
+		$scope.modalTitle = 'Agregar Datos';
+		$scope.submit_button = 'Insertar datos';
 		$scope.openModal();
 	};
 
