@@ -4,7 +4,7 @@
 
 include('database_connection.php');
 
-$query = "SELECT * FROM motivo_es_gt";
+$query = "SELECT * FROM motivo_es_gt limit 5";
 $statement = $connect->prepare($query);
 if($statement->execute())
 {
