@@ -150,11 +150,11 @@ app.controller('crudController', function($scope, $http){
 		});
 	};
 
-	$scope.fetchSingleData = function(motivo){
+	$scope.fetchSingleData = function(id){
 		$http({
 			method:"POST",
 			url:"insert.php",
-			data:{'motivo':motivo, 'action':'fetch_single_data'}
+			data:{'id':id, 'action':'fetch_single_data'}
 		}).success(function(data){
 			$scope.motivo = data.motivo;
 			$scope.des_motivo = data.des_motivo;
