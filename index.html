@@ -38,7 +38,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr ng-repeat="name in namesData track by $index">
+						<tr ng-repeat="name in [namesData]">
 							<td>{{name.motivo}}</td>
 							<td>{{name.des_motivo}}</td>
 							<td>{{name.estado}}</td>
@@ -106,7 +106,9 @@ app.controller('crudController', function($scope, $http){
 
 	$scope.fetchData = function(){
 		$http.get('fetch_data.php').success(function(data){
+			console.log(data);
 			$scope.namesData = data;
+			
 		});
 	};
 
