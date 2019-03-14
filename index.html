@@ -43,7 +43,8 @@
                             <td>{{name.des_motivo}}</td>
                             <td>{{name.estado}}</td>
                             <td>{{name.tipo}}</td>
-							
+							<td><button type="button" ng-click="fetchSingleData(name.id)" class="btn btn-warning btn-xs">Edit</button></td>
+							<td><button type="button" ng-click="deleteData(name.id)" class="btn btn-danger btn-xs">Delete</button></td>
 						</tr>
 					</tbody>
 				</table>
